@@ -35,4 +35,4 @@
                       (string-bytes encoded))
               encoded)
       (process-send-region process (point-min) (point-max)))
-    (message "%s" (json-rpc-wait connection))))
+    (json-rpc-wait connection)))
