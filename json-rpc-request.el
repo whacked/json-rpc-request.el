@@ -19,8 +19,8 @@
   "
   (let* ((id (cl-incf (json-rpc-id-counter connection)))
          (params (if (and (= 1 (length mixed-params))
-                          (eq 'cons (type-of (first mixed-params))))
-                     (first mixed-params)
+                          (eq 'cons (type-of (car mixed-params))))
+                     (car mixed-params)
                    (vconcat mixed-params)))
          (request `(:jsonrpc "2.0" :method ,method :params ,params :id ,id))
          (process (json-rpc-process (json-rpc-ensure connection)))
